@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleDeFuncionarios.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241114084023_firsMigration")]
-    partial class firsMigration
+    [Migration("20241115235803_popularTabelaFuncionario")]
+    partial class popularTabelaFuncionario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,11 +46,13 @@ namespace ControleDeFuncionarios.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Sobrenome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Turno")
                         .HasColumnType("int");
